@@ -15,6 +15,18 @@ try {
     $app = new Application($container, $dispatcher, '0.1');
     $app->setName('Calculator');
 
+    $commands = require_once __DIR__.'/commands.php';
+    $commands = collect($commands)
+        ->map(
+            function ($command) use ($app) {
+                return $app->getLaravel()->make($command);
+            }
+        )
+        ->all()
+    ;
+
+    $app->addCommands($commands);
+
     $app->run(new ArgvInput(), new ConsoleOutput());
 } catch (Throwable $e) {
 }
