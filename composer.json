@@ -11,6 +11,11 @@
         "illuminate/events": "5.8.*",
         "illuminate/support": "5.8.*"
     },
+    "autoload": {
+        "psr-4": {
+            "Jakmall\\Recruitment\\Calculator\\": "src/"
+        }
+    },
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
