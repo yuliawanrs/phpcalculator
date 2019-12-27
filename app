@@ -15,6 +15,7 @@ try {
     $app = new Application($container, $dispatcher, '0.1');
     $app->setName('Calculator');
     $providers = [
+        \Jakmall\Recruitment\Calculator\History\CommandHistoryServiceProvider::class,
     ];
 
     foreach ($providers as $provider) {
